@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Profit.belongsTo(models.User)
+
+      Profit.hasMany(models.categories,{
+        foreignKey : 'profitId',
+        as : 'profits'
+      })
     }
   }
   Profit.init({
